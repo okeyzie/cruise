@@ -29,10 +29,10 @@ app.use(passport.session())
 const swaggerDefinition = {
   openapi: '3.0.0',
   info: {
-  title: 'API documentation for Queueless App',
+  title: 'API documentation for Cruise-Car App',
     version: '1.0.0',
     description:
-      'First swagger documentation class.',
+      'API Documentation for all Endpoints.',
     // license: {
     //   name: 'Licensed Under MIT',
     //   url: 'https://spdx.org/licenses/MIT.html',
@@ -80,10 +80,12 @@ const swaggerSpec = swaggerJSDoc(options);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
+// Root route for basic server check
 app.get('/', (req, res) => {
   res.send('Connected to Backend Server')
 });
 
+// API routes
 app.use("/api/v1", userRouter);
 
 app.use((error, req, res, next) => {
@@ -102,7 +104,6 @@ mongoose.connect(db).then(()=>{
     console.log(`Server is running on the PORT: ${PORT}`);  
 })
 }).catch((error)=> {
-    console.log("Error connecting to the datbase:", error.message);
-    
-})
+    console.log("Error connecting to the datbase:", error.message)
+});
 
