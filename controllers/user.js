@@ -4,7 +4,7 @@ const e = require("cors");
 const html = require('../middleware/signUp');
 const { forgethtml } = require('../middleware/forgetPassword');
 const jwt = require("jsonwebtoken");
-const { sendMail } = require('../middleware/email');
+const { sendMail } = require('../middleware/brevo');
 const axios = require('axios');
 
 const nodemailer = require("nodemailer");
