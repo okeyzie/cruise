@@ -44,11 +44,11 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: 'https://cruise-wx9q.onrender.com',
+      url: 'https://cruise-wx9q.onrender.com/docs',
       description: 'Development server',
     },
     {
-      url: 'http://localhost:8080',
+      url: 'http://localhost:8080/docs',
       description: 'Development server',
     },
   ],

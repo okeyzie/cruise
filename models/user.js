@@ -43,7 +43,11 @@ const userSchema = new mongoose.Schema(
      },
     otpExpiredAt: {
     type: Number
-    }
+    },
+    rememberMe: {
+        type: Boolean,
+        default: false
+    },
   },
   { timestamps: true }
 );

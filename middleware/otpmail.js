@@ -1,5 +1,5 @@
 const watermark = 'https://res.cloudinary.com/ddmh8i1m1/image/upload/v1759258400/Untitled1_q0cjdo.bmp';
-const logo = 'https://res.cloudinary.com/ddmh8i1m1/image/upload/v1759228791/logo1_qmce8b.png';
+const logo = 'https://res.cloudinary.com/ddmh8i1m1/image/upload/v1768164655/Frame_3_tihuii.png';
 const linkedIn = 'https://res.cloudinary.com/dbzzkaa97/image/upload/v1754433533/linkedIn_ggxxm4.png';
 const instagram = 'https://res.cloudinary.com/dbzzkaa97/image/upload/v1754433533/instagram_p8byzw.png';
 const facebook = 'https://res.cloudinary.com/dbzzkaa97/image/upload/v1754433532/facebook_rjeokq.png';

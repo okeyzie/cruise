@@ -4,7 +4,7 @@ const e = require("cors");
 const html = require('../middleware/signUp');
 const { forgethtml } = require('../middleware/forgetPassword');
 const jwt = require("jsonwebtoken");
-const { sendMail } = require('../middleware/brevo');
+const { sendMail } = require('../middleware/email');
 const axios = require('axios');
 
 const nodemailer = require("nodemailer");
@@ -14,7 +14,7 @@ const {registerOTP} = require("../middleware/otpmail");
 
 exports.register = async (req, res) => {
   try {
-    const { firstName, lastName, email, number, password, confirmPassword } = req.body;
+    const { firstName, lastName, email, number, password, confirmPassword, rememberMe } = req.body;
 
     // let response;
 
@@ -31,8 +31,8 @@ exports.register = async (req, res) => {
     // Hash password
     const saltRounds = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, saltRounds);
-    // const otp = Math.round(Math.random() * 10000).toString().padStart(6, "0");
-    const otp = Math.floor(1000 + Math.random() * 9000).toString();
+    const otp = Math.round(Math.random() * 10000).toString().padStart(6, "0");
+    //const otp = Math.floor(1000 + Math.random() * 9000).toString();
     
     
     const newUser = await userModel({
@@ -42,6 +42,7 @@ exports.register = async (req, res) => {
       number,
       password: hashPassword,
       confirmPassword,
+      rememberMe: rememberMe || false,
       otp: otp,
       otpExpiredAt: Date.now() + 1000 *120,
 
@@ -193,7 +194,7 @@ exports.updateUserById = async (req, res) => {
 // Login with Email & Password
 exports.loginWithEmail = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, rememberMe } = req.body;
 
     const user = await userModel.findOne({ email : email.toLowerCase().trim()});
     if (!user)
@@ -220,7 +221,8 @@ exports.loginWithEmail = async (req, res) => {
       message: "Login successful",
       data :{
         user: user.firstName,
-        email: user.email
+        email: user.email,
+        rememberMe: user.rememberMe
       }
     });
   } catch (error) {
@@ -230,7 +232,7 @@ exports.loginWithEmail = async (req, res) => {
 
 exports.loginWithMobile = async (req, res) => {
   try {
-    const { number, password } = req.body;
+    const { number, password, rememberMe } = req.body;
 
     const user = await userModel.findOne({ number });
     if (!user)
@@ -246,6 +248,7 @@ exports.loginWithMobile = async (req, res) => {
     const payload = {
       id: user._id,
       number: user.number,
+
     };
     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" }); 
     user.token = token;
@@ -256,7 +259,8 @@ exports.loginWithMobile = async (req, res) => {
       message: "Login successful",
       data :{
         user: user.firstName,
-        number: user.number
+        number: user.number,
+        rememberMe: user.rememberMe
       }
     });
   } catch (error) {
