@@ -36,11 +36,11 @@ return `
         <tr>
           <td style="height: 350px">
             <h1 style="font-size: 35px; font-weight: bold; margin: 0 0 10px;">Email Verification</h1>
-            <h2 style="font-size: 20px; margin: 0 0 10px;">Welcome to Go-Meal App ${firstname},</h2>
-            <p style="font-size: 17px; margin: 0 0 20px;">To complete your registration, Here's your 4-digit code, enter it to verify your email and unlock the GoMeal's fast experience!</p>
+            <h2 style="font-size: 20px; margin: 0 0 10px;">Welcome to Cruise App ${firstname},</h2>
+            <p style="font-size: 17px; margin: 0 0 20px;">To complete your registration, Here's your 6-digit code, enter it to verify your email and unlock the Cruise's fast experience!</p>
             <h2 style="font-size: 35px; font-weight: bold; background: #c2cfd3; padding: 10px; border-radius: 5px; text-align: center;">${otp}</h2>
             <p style="font-size: 17px; margin: 20px 0px 10px 0px;">Need help? Reach out to our support team below.</p>
-            <p style="font-size: 17px;">Thank you for choosing GoMeal.</p>
+            <p style="font-size: 17px;">Thank you for choosing Cruise.</p>
           </td>
         </tr>
         <tr>
@@ -49,9 +49,9 @@ return `
             style="color: #ffffff; margin: 0 auto;">
             <tr>
               <td align="center">
-                <h3 style="margin: 0; font-size: 25px;">GoMeal</h3>
+                <h3 style="margin: 0; font-size: 25px;">Cruise</h3>
                 <p style="margin: 8px 0 20px; font-size: 12px;">
-                  <b> Go-Meal</b>. Delicious meals-Speed, simplicity, and satisfaction <br>at your doorstep..
+                  <b> Cruise</b>. Speed, simplicity, and satisfaction <br>at your doorstep..
                 </p>
                 <table cellpadding="5" cellspacing="0" style="margin: 10px 0; text-align: center;">
                   <tr>
@@ -63,8 +63,8 @@ return `
                 </table>
                 <p style="margin: 10px 0 0; font-size: 12px;">
                   Contact us: &nbsp; +234 805 1897 781 &nbsp;
-                  <a href="mailto:gomealofficial@gmail.com" style="color: #ffffff; text-decoration: underline;">
-                    gomealofficial@gmail.com
+                  <a href="mailto:support@cruise.com" style="color: #ffffff; text-decoration: underline;">
+                    support@cruise.com
                   </a>
                 </p>
               </td>

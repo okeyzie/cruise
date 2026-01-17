@@ -77,7 +77,7 @@ const forgethtml=(verifyLink,firstName)=>{
                     <a href="${verifyLink}" class="button">Reset Password</a>
                 </div>
                 <p>If you did not request a password reset, kindly ignore this email.</p>
-                <p>Best regards,<br>Go Meal</p>
+                <p>Best regards,<br>Cruise</p>
             </div>
             <div class="footer">
                 <p>&copy; ${new Date().getFullYear()} . All rights reserved.</p>

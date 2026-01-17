@@ -68,7 +68,7 @@ const html=(verifyLink,firstName)=>{
     <body>
         <div class="container">
             <div class="header">
-                <h1>Wellcome to GoMeal!!</h1>
+                <h1>Wellcome to Cruise!!</h1>
             </div>
             <div class="content">
                 <p>Hello ${firstName},</p>
@@ -78,7 +78,7 @@ const html=(verifyLink,firstName)=>{
                 </div>
                 <p>If you did not register on our platform, kindly ignore this email.</p>
                 <p>Best regards,</p>
-                <p>The GoMeal Team</p>
+                <p>The Cruise Team</p>
             </div>
             <div class="footer">
                 <p>&copy; ${new Date().getFullYear()} . All rights reserved.</p>
