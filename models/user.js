@@ -15,7 +15,10 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       lowercase: true,
-      trim: true
+      trim: true,
+      unique: true,
+      required: true
+      
     },
     number: {
       type: String,
@@ -30,7 +33,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-        isVerifed: {
+    isVerified: {
         type: Boolean,
         default: false
     },
@@ -39,15 +42,22 @@ const userSchema = new mongoose.Schema(
         default: null
     },
     otp: {
-    type: String
-     },
+    type: String,
+    default: null
+    },
     otpExpiredAt: {
-    type: Number
+    type: Number,
+    default: null
     },
     rememberMe: {
         type: Boolean,
         default: false
     },
+    profilePicture: {
+      public_id: { type: String, default: null },
+      url: { type: String, default: null }
+    }
+    
   },
   { timestamps: true }
 );

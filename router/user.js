@@ -10,6 +10,8 @@ const {
   updateUserById
 } = require("../controllers/user");
 
+const uploads = require("../middleware/multer");
+
 const { registerValidator , verifyValidator, resendValidator} = require("../middleware/validator");
 
 const router = require("express").Router();
@@ -106,7 +108,7 @@ const router = require("express").Router();
  *                   type: string
  *                   example: Internal server error
  */
-router.post("/register", registerValidator, register);
+router.post("/register", uploads.single("profilePicture"), registerValidator, register);
 
 /**
  * @swagger
