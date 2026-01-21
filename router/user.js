@@ -18,7 +18,7 @@ const router = require("express").Router();
 
 /**
  * @swagger
- * /register:
+ * /api/v1/register:
  *   post:
  *     tags:
  *       - Authentication
@@ -112,7 +112,7 @@ router.post("/register", uploads.single("profilePicture"), registerValidator, re
 
 /**
  * @swagger
- * /login/email:
+ * /api/v1/login/email:
  *   post:
  *     tags:
  *       - Authentication
@@ -189,7 +189,7 @@ router.post("/login/email", loginWithEmail);
 
 /**
  * @swagger
- * /login/mobile:
+ * /api/v1/login/mobile:
  *   post:
  *     tags:
  *       - Authentication
@@ -265,7 +265,7 @@ router.post("/login/mobile", loginWithMobile);
 
 /**
  * @swagger
- * /forgetpassword:
+ * /api/v1/forgetpassword:
  *   post:
  *     tags:
  *       - Authentication
@@ -322,7 +322,7 @@ router.post("/forgetpassword", forgetPassword);
 
 /**
  * @swagger
- * /verifyotp:
+ * /api/v1/verifyotp:
  *   post:
  *     tags:
  *       - Authentication
@@ -396,7 +396,7 @@ router.post("/verifyotp",verifyValidator, verifyOtp);
 
 /**
  * @swagger
- * /resendotp:
+ * /api/v1/resendotp:
  *   post:
  *     tags:
  *       - Authentication
@@ -456,7 +456,7 @@ router.post("/resendotp", resendValidator, resendOtp);
 
 /**
  * @swagger
- * /getUser/{id}:
+ * /api/v1/getUser/{id}:
  *   get:
  *     tags:
  *       - User
@@ -525,7 +525,7 @@ router.get("/getUser/:id", getUserById);
 
 /**
  * @swagger
- * /deleteUser/{id}:
+ * /api/v1/deleteUser/{id}:
  *   delete:
  *     tags:
  *       - User
@@ -575,7 +575,7 @@ router.delete("/deleteUser/:id", deleteUserById);
 
 /**
  * @swagger
- * /updateUser/{id}:
+ * /api/v1/updateUser/{id}:
  *   put:
  *     tags:
  *       - User
