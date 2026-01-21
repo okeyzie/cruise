@@ -1,4 +1,12 @@
 const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+
+// Ensure the images directory exists
+const uploadDir = path.join(__dirname, '../images');
+if (!fs.existsSync(uploadDir)){
+    fs.mkdirSync(uploadDir);
+}
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -13,10 +21,20 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('image/')) {
-    cb(null, true)
+  const allowedTypes = /jpeg|jpg|png|webp/;
+  const ext = allowedTypes.test(
+    path.extname(file.originalname).toLowerCase()
+  );
+  const mime = allowedTypes.test(file.mimetype);
+
+  if (ext && mime) {
+    cb(null, true);
   } else {
-    cb(new Error("Invalid file format: Images only"));
+    cb(
+      new Error(
+        "Invalid file type. Only JPG, PNG, JPEG, and WEBP are allowed."
+      )
+    );
   }
 };
 

@@ -7,7 +7,7 @@ mongoose.set('strictPopulate', false);
 const PORT = process.env.PORT || 1234;
 const db = process.env.MONGO_DB;
 const userRouter = require("./router/user");
-
+const locationRoutes = require("./router/googleLocation");
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const session = require('express-session');
@@ -87,6 +87,7 @@ app.get('/', (req, res) => {
 
 // API routes
 app.use("/api/v1", userRouter);
+app.use("/api/v1", locationRoutes);
 
 app.use((error, req, res, next) => {
   if (error) {
